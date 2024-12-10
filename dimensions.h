@@ -1,12 +1,9 @@
 #pragma once
 
 #include <QtCore/QObject>
-
 #include <QtGui/QGuiApplication>
 #include <QtGui/QScreen>
-
 #include <QtQml/QQmlParserStatus>
-
 #include <QtQmlIntegration/QtQmlIntegration>
 
 class Dimensions : public QObject, public QQmlParserStatus {
@@ -62,8 +59,4 @@ private:
     qreal m_physical_dots_per_millimeter { 0.0 };
     // Actual millimeter value * device pixel ratio * m_scale.
     qreal m_device_dots_per_millimeter { 0.0 };
-
-    // qreal m_height_millimeters { 233.0 };
-    // qreal m_width_millimeters { 452.0 };
-    // qreal m_physical_dots_per_millimeter { qGuiApp->primaryScreen()->physicalDotsPerInch() * 0.03937007874016 };
 };

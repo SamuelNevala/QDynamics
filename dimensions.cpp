@@ -2,7 +2,6 @@
 
 #include <QtGui/QKeyEvent>
 #include <QtGui/QWindow>
-
 #include <QtMath>
 
 static const qreal phone_height_milimeters = 150.5;

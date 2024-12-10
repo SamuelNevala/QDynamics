@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
-project(QuickDynamics VERSION 1.0 LANGUAGES CXX)
+project(QDynamics VERSION 1.0 LANGUAGES CXX)
 
-set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_QML_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR})
 
@@ -9,15 +8,15 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
-qt_add_library(QuickDynamics STATIC)
+qt_add_library(QDynamics STATIC)
 
-qt_add_qml_module(quickdynamicsplugin
-    URI QuickDynamics
+qt_add_qml_module(qdynamicsplugin
+    URI QDynamics
     VERSION 1.0
     QML_FILES DefaultAnimation.qml LoaderWindow.qml
     SOURCES dimensions.cpp dimensions.h
-    PLUGIN_TARGET quickdynamicsplugin
-    DEPENDENCIES QtQuick
+    # PLUGIN_TARGET qdynamicsplugin
+    DEPENDENCIES QtQuick QtCore
 )
 
 # set_target_properties(quickdynamicsplugin PROPERTIES
@@ -28,9 +27,9 @@ qt_add_qml_module(quickdynamicsplugin
 #     WIN32_EXECUTABLE TRUE
 # )
 
-target_compile_definitions(quickdynamicsplugin PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(quickdynamicsplugin PRIVATE Qt6::Core Qt6::Gui Qt6::Quick)
-target_include_directories(quickdynamicsplugin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_definitions(qdynamicsplugin PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+target_link_libraries(qdynamicsplugin PRIVATE Qt6::Core Qt6::Gui Qt6::Quick)
+target_include_directories(qdynamicsplugin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # TODO figure out the installaiton later!
 # # Set installation paths
